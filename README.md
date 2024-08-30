@@ -7,8 +7,8 @@ Instalação
 Clone o repositório:
 
 bash
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_REPOSITORIO>
+git clone https://github.com/SirCabral/water-gas-measurement
+cd water-gas-measurement
 Construir a imagem Docker:
 
 bash
