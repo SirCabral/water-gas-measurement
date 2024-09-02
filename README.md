@@ -1,37 +1,46 @@
-Descrição
-Este serviço gerencia operações relacionadas a leitura de gas e água com envio de imagem. A documentação abaixo explica como usar Docker para configurar e executar o serviço.
+# Water and Gas Measurement Service
 
-Requisitos
-Docker: Certifique-se de ter o Docker instalado em sua máquina. Você pode baixar e instalar o Docker a partir de Docker Desktop ou Docker Engine.
-Instalação
-Clone o repositório:
+Este serviço gerencia operações relacionadas à leitura de gás e água, incluindo o envio de imagens. A documentação abaixo explica como configurar e executar o serviço utilizando Docker.
 
-bash
-git clone https://github.com/SirCabral/water-gas-measurement
-cd water-gas-measurement
-Construir a imagem Docker:
+## Requisitos
 
-bash
-docker-compose up --build
-Configuração
-Crie um arquivo .env: Crie um arquivo .env na raiz do projeto com as variáveis de ambiente necessárias conforme o arquivo .env.example
+- **Docker:** Certifique-se de ter o Docker instalado em sua máquina. Você pode baixar e instalar o Docker a partir do [Docker Desktop](https://www.docker.com/products/docker-desktop) ou do [Docker Engine](https://docs.docker.com/engine/install/).
 
-bash
-docker-compose up -d
-O docker-compose vai criar os containers necessários com base nas configurações do arquivo docker-compose.yml e deixará o serviço disponível.
+## Instalação
 
+1. Clone o repositório:
 
+    ```bash
+    git clone https://github.com/SirCabral/water-gas-measurement
+    cd water-gas-measurement
+    ```
 
+2. Construa a imagem Docker:
 
-OBSERVAÇÕES:
+    ```bash
+    docker-compose up --build
+    ```
 
+## Configuração
 
-Post / Upload
+1. Crie um arquivo `.env`: Na raiz do projeto, crie um arquivo `.env` com as variáveis de ambiente necessárias, conforme o exemplo em `.env.example`.
 
-• Verificar se já existe uma leitura no mês naquele tipo de leitura.
-Nessa etapa não foi muito detalhado, mas eu coloquei uma verificação da leitura do Mês levando em consideração o customer_code (que é o codigo do usuário).
-Pra mim faz sentido se é uma verificação de se já teve uma leitura anterior ser baseado naquele usuário específico e não baseado em todas as leituras de todos os usuários.
+2. Inicie os containers:
 
+    ```bash
+    docker-compose up -d
+    ```
 
-.env
-Deixei um arquivo de exemplo do .env com algumas informações adicionais de configuração do banco de dados, mas elas são opcionais.
+    O Docker Compose vai criar os containers necessários com base nas configurações do arquivo `docker-compose.yml` e deixará o serviço disponível.
+
+## Observações
+
+### POST / Upload
+
+- Verifique se já existe uma leitura para o mês e o tipo de leitura especificado.
+  
+  **Nota:** A verificação considera o `customer_code` (código do usuário). Faz sentido que a verificação seja baseada no usuário específico, e não em todas as leituras de todos os usuários.
+
+### Arquivo `.env`
+
+- Um arquivo de exemplo `.env` foi fornecido com informações adicionais de configuração do banco de dados. Essas informações são opcionais, mas podem ser ajustadas conforme necessário.
